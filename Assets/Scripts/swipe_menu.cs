@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class swipe_menu : MonoBehaviour
 {
         public GameObject scrollbar;
@@ -40,5 +41,5 @@ public class swipe_menu : MonoBehaviour
                     }
                 }
             }
-        }   
+        }
 }
