@@ -5,7 +5,6 @@ using UnityEngine;
 public class CharContOne : MonoBehaviour
 {
     private float Speed = 1f;
-
     private bool isMoving;
     private Vector3 origPos, targetPos;
     private float timeToMove = 0.4f;

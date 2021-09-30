@@ -4,10 +4,13 @@ using System.Collections.Generic;
 
 public class UpperContent : MonoBehaviour
 {
+    GameObject rImage = Instantiate(Resources.Load("Scenes"));
+
     public void insertActionButton(string currentAction)
     {
         Debug.Log("Button Inserted " + currentAction);
+
     }
 
-    private List<GameObject>
+    private List<GameObject> mylist;
 }
