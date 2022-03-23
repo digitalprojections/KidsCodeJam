@@ -8,7 +8,7 @@ public class CharContOne : MonoBehaviour
 
     private bool isMoving;
     private Vector3 origPos, targetPos;
-    private float timeToMove = 0.4f;
+    public float TimeToMove = 0.4f;
 
 
     // Update is called once per frame

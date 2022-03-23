@@ -9,5 +9,5 @@ public class UpperContent : MonoBehaviour
         Debug.Log("Button Inserted " + currentAction);
     }
 
-    private List<GameObject>
+    //private List<GameObject>
 }
