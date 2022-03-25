@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class UpperContent : MonoBehaviour
 {
-    GameObject rImage = Instantiate(Resources.Load("Scenes"));
+    GameObject rImage = (GameObject) Instantiate(Resources.Load("Scenes"));
 
     public void insertActionButton(string currentAction)
     {
