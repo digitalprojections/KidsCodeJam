@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ActionPanel : MonoBehaviour
 {
+    public static ActionPanel Instance;
+
     private Vector2 endPosition;
     public GameObject SequencePanel;
 
@@ -13,8 +16,12 @@ public class ActionPanel : MonoBehaviour
     public GameObject DownMove;
     public GameObject PickMove;
     private GameObject step;
+    private int stepCount;
 
-
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
         endPosition = SequencePanel.transform.position;
@@ -70,6 +77,42 @@ public class ActionPanel : MonoBehaviour
     }
     public void Play()
     {
+        Debug.Log(SequencePanel.transform.GetChild(stepCount).tag);
+        StartCoroutine(StepDelay());
+    }
 
+    private IEnumerator StepDelay()
+    {
+        switch(SequencePanel.transform.GetChild(stepCount).tag)
+        {
+            case "Up":
+                StartCoroutine(CharContOne.Instance.MovePlayer(Vector2.up));
+                break;
+
+            case "Down":
+                StartCoroutine(CharContOne.Instance.MovePlayer(Vector2.down));
+                break;
+
+            case "Right":
+                StartCoroutine(CharContOne.Instance.MovePlayer(Vector2.right));
+                break;
+
+            case "Left":
+                StartCoroutine(CharContOne.Instance.MovePlayer(Vector2.left));
+                break;
+
+        }
+        return null;        
+    }
+    public void NextStep()
+    {
+        if (SequencePanel.transform.childCount > 0)
+        {
+            if(SequencePanel.transform.childCount - stepCount > 1)
+                    {
+                stepCount++;
+                StartCoroutine(StepDelay());
+            }
+        }
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CharContOne : MonoBehaviour
 {
+    public static CharContOne Instance;
+
     private float Speed = 1f;
     public bool isMoving;
     private Vector2 origPos, targetPos;
@@ -11,9 +13,9 @@ public class CharContOne : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void Awake()
     {
-
+        Instance = this;
     }
 
     public IEnumerator MovePlayer(Vector2 direction)
@@ -36,6 +38,8 @@ public class CharContOne : MonoBehaviour
             transform.position = targetPos;
 
             isMoving = false;
+            yield return new WaitForSeconds(0.5f);
+            ActionPanel.Instance.NextStep();
         }
     }
 }
