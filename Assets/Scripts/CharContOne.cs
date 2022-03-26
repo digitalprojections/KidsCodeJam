@@ -5,49 +5,37 @@ using UnityEngine;
 public class CharContOne : MonoBehaviour
 {
     private float Speed = 1f;
-    private bool isMoving;
-    private Vector3 origPos, targetPos;
+    public bool isMoving;
+    private Vector2 origPos, targetPos;
     public float timeToMove = 0.4f;
 
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W) && !isMoving)
-        {
-           StartCoroutine(MovePlayer(Vector3.up));
-        }
-        if (Input.GetKey(KeyCode.A) && !isMoving)
-        {
-            StartCoroutine(MovePlayer(Vector3.left));
-        }
-        if (Input.GetKey(KeyCode.S) && !isMoving)
-        {
-            StartCoroutine(MovePlayer(Vector3.down));
-        }
-        if (Input.GetKey(KeyCode.D) && !isMoving)
-        {
-            StartCoroutine(MovePlayer(Vector3.right));
-        }
+
     }
 
-    private IEnumerator MovePlayer(Vector3 direction)
+    public IEnumerator MovePlayer(Vector2 direction)
     {
-        isMoving = true;
-        float elapsedTime = 0;
-
-        origPos = transform.position;
-        targetPos = origPos + direction;
-
-        while (elapsedTime < timeToMove)
+        if (!isMoving)
         {
-            transform.position = Vector3.Lerp(origPos, targetPos, (elapsedTime / timeToMove));
-            elapsedTime += Time.deltaTime;
-            yield return null;
+            isMoving = true;
+            float elapsedTime = 0;
+
+            origPos = transform.position;
+            targetPos = origPos + direction;
+
+            while (elapsedTime < timeToMove)
+            {
+                transform.position = Vector2.Lerp(origPos, targetPos, (elapsedTime / timeToMove));
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
+            transform.position = targetPos;
+
+            isMoving = false;
         }
-
-        transform.position = targetPos;
-
-        isMoving = false;
     }
 }
