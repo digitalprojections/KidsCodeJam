@@ -1,0 +1,3 @@
+rep "KidsCodeJam@qoplon@cloud"
+  path "/"
+    smartbranch "/main"

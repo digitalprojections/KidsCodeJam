@@ -404,7 +404,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.15, y: -4.29, z: -10}
+  m_LocalPosition: {x: -5.1, y: -4.29, z: -10}
   m_LocalScale: {x: 0, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4012,6 +4012,49 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &574081782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 574081784}
+  - component: {fileID: 574081783}
+  m_Layer: 0
+  m_Name: Collector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &574081783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574081782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c2e974aca461a46a57f2f0fab1b4e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &574081784
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574081782}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5, y: -5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &715578619
 GameObject:
   m_ObjectHideFlags: 0
@@ -4047,7 +4090,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -465.64, y: 142.28}
+  m_AnchoredPosition: {x: -465.5, y: 143.12}
   m_SizeDelta: {x: 668.36957, y: -286.24884}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &715578621
@@ -4932,6 +4975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5d06c12a2d61c748936df1503c54fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoving: 0
   timeToMove: 0.4
 --- !u!61 &2060697066
 BoxCollider2D:
