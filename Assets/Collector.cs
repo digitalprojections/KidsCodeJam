@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class Collector : MonoBehaviour
-{0
-                                                                                                            .
+{
+                                                                                                           
     [SerializeField] List<Collectible> gatherables;
     [SerializeField] UnityEvent OnCompleteEvent;
 }

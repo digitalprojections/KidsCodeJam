@@ -15,8 +15,8 @@ public class ActionPanel : MonoBehaviour
     public GameObject UpMove;
     public GameObject DownMove;
     public GameObject PickMove;
+
     private GameObject step;
-    private int stepCount;
 
     private void Awake()
     {
@@ -28,7 +28,7 @@ public class ActionPanel : MonoBehaviour
     }
     public void Right()
     {
-        if(SequencePanel.transform.childCount >= 36)
+        if (SequencePanel.transform.childCount >= 36)
         {
             return;
         }
@@ -73,45 +73,49 @@ public class ActionPanel : MonoBehaviour
     }
     public void Refresh()
     {
-
+        SequencePanel.transform.DetachChildren();
+        //Debug.Log();
     }
     public void Play()
     {
-        Debug.Log(SequencePanel.transform.GetChild(stepCount).tag);
-        StartCoroutine(StepDelay());
+        if (SequencePanel.transform.childCount > 0)
+        {
+            Debug.Log(SequencePanel.transform.GetChild(stepCount).tag);
+            StepDelay();
+        }
     }
 
     private IEnumerator StepDelay()
     {
-        switch(SequencePanel.transform.GetChild(stepCount).tag)
-        {
-            case "Up":
+            switch (SequencePanel.transform.GetChild(stepCount).tag)
+            {
+                case "Up":
                 StartCoroutine(CharContOne.Instance.MovePlayer(Vector2.up));
-                break;
+                    break;
 
-            case "Down":
+                case "Down":
                 StartCoroutine(CharContOne.Instance.MovePlayer(Vector2.down));
-                break;
+                    break;
 
-            case "Right":
+                case "Right":
                 StartCoroutine(CharContOne.Instance.MovePlayer(Vector2.right));
-                break;
+                    break;
 
-            case "Left":
+                case "Left":
                 StartCoroutine(CharContOne.Instance.MovePlayer(Vector2.left));
-                break;
-
-        }
-        return null;        
+                    break;
+                default:
+                return null;
+            }
+        return null;
     }
     public void NextStep()
     {
         if (SequencePanel.transform.childCount > 0)
         {
-            if(SequencePanel.transform.childCount - stepCount > 1)
-                    {
-                stepCount++;
-                StartCoroutine(StepDelay());
+            if (SequencePanel.transform.childCount > 1)
+            {
+                StepDelay();
             }
         }
     }
